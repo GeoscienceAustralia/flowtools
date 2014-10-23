@@ -52,6 +52,6 @@ services provided by the OpenTopography Facility with support from the National
 Science Foundation under NSF Award Numbers 0930731 & 0930643 \cr
 }
 \author{
-Gareth Davies \email{grothered_at_gmail.com}
+Gareth Davies \email{gareth.davies.ga.code@gmail.com}
 }
 
