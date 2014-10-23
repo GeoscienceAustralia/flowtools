@@ -1,0 +1,19 @@
+Package: LASextractor
+Version: 0.0-1
+Date: 2014-09-01
+Title: Routines for working with las data into R
+Authors@R: person("Gareth", "Davies", role = c("aut", "cre"),
+    email = "grothered@gmail.com")
+Author: Gareth Davies
+Maintainer: Gareth Davies <grothered@gmail.com>
+Depends:
+    R (>= 1.8.0),
+    rgdal,
+    rgeos,
+    unstructInterp,
+    raster
+Description: Basic routines to read from las, to extract point-cloud subsets
+    inside polygons or near lines, etc
+License: BSD_3_clause
+URL: http://www.r-project.org
+BugReports: http://FIXME.url
