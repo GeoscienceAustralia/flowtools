@@ -25,9 +25,10 @@ https://github.com/GeoscienceAustralia/unstructInterp
     install.packages(c('rgdal', 'rgeos', 'raster'))
 
 - If you've followed the above steps you will also have the devtools package,
-  and can finally install LASextractor with:
+  and can finally install LASextractor from inside R with:
 
     library(devtools)
+
     install_github('GeoscienceAustralia/flowtools/LASextractor/LASextractor')
 
 Getting started:
