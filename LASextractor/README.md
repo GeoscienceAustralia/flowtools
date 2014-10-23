@@ -71,7 +71,7 @@ The code to perform the above would be something like:
     
     # Manually select a subset, and write outputs as csv
     manuallyProjectLasElevationsAlongLine(
-        lasFile, 
+        lasFiles, 
         lineShpFile, 
         extractionBufWidth=initial_filter_distance,
         projectionLineFile=lineShpFile, 
