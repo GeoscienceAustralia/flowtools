@@ -30,6 +30,19 @@ https://github.com/GeoscienceAustralia/unstructInterp
     library(devtools)
     install_github('GeoscienceAustralia/flowtools/LASextractor/LASextractor')
 
+Getting started:
+----------------
+Look at the help
+    
+    library(LASextractor)
+    ?LASextractor
+
+The example for 'manuallyProjectLasElevationsAlongLine' shows how to use it to
+interactively define an elevation profile along a user-provided xy line
+shapefile (where elevations are chosen based on elevations of nearby lidar
+points).
+
+
 Bugs
 ----
 
