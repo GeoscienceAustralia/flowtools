@@ -3,9 +3,9 @@ Version: 0.0-1
 Date: 2014-09-01
 Title: Routines for working with las data into R
 Authors@R: person("Gareth", "Davies", role = c("aut", "cre"),
-    email = "grothered@gmail.com")
+    email = "gareth.davies.ga.code@gmail.com")
 Author: Gareth Davies
-Maintainer: Gareth Davies <grothered@gmail.com>
+Maintainer: Gareth Davies <gareth.davies.ga.code@gmail.com>
 Depends:
     R (>= 1.8.0),
     rgdal,
