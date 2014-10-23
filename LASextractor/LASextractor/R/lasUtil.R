@@ -48,7 +48,7 @@
 #' Science Foundation under NSF Award Numbers 0930731 & 0930643 \cr
 #'
 #' @name LASextractor
-#' @author Gareth Davies \email{grothered_at_gmail.com}
+#' @author Gareth Davies \email{gareth.davies.ga.code@gmail.com}
 #'
 NULL
 
