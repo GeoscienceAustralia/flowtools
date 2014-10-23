@@ -31,33 +31,35 @@ In Figure 1 below, the user has created a line shapefile along the narrow drain
 LASextractor was used to extract a subset of the LIDAR xyz points within 10m of
 the line shapefile, which is small enough to fit easily in memory, and includes
 points both inside the drain and near its banks. These point elevations were
-plotted vs distance along the line (Figure 2). 
+plotted vs distance along the line shapefile (Figure 2). 
 
-The user then interactively defined a line marking the drain invert by clicking
-on the plot (red dotted line in Figure 2). Note the drain invert which shows up
-fairly clearly in the LIDAR point subset, as a narrow band of points plotting a
-few metres below most others (although this is somewhat obscured by the red
-line).  
+The user then interactively defined a distance-elevation profile marking the
+drain invert by clicking on the plot (red dotted line in Figure 2). Note the
+drain invert which shows up fairly clearly in the LIDAR point subset, as a
+narrow band of points plotting a few metres below most others (although it is
+somewhat obscured by the digitized red dotted line).  
 
 ![profile](Drain_bedProfile.png?raw=true)
 
 [Figure 2]
 
-Finally all LIDAR points within a vertical distance of 20cm from the line
-defined in Figure 2 were exported (see blue points in Figure 1). We can
-cross-check in GIS that these xyz points were over the drain invert, which
-confirms that the drain invert was accurately interpreted from the data in
-Figure 2. 
+Finally we exported all LIDAR points within a vertical distance of 20cm from
+the distance-elevation profile manually defined in Figure 2 (see blue points in
+Figure 1). We can cross-check in GIS that these xyz points were over the drain
+invert, which confirms that the drain invert was accurately interpreted from
+the data in Figure 2. 
 
-We can also export evenly spaced xyz points along the initially defined line,
-where the 'z' elevation is computed based on the user-defined line in Figure 2.
-Such outputs can then be used in other software [for example, to define drain
-elevations for flood modelling].
+We can also project evenly spaced xyz points along the initially defined line
+shapefile (or another line shapefile), where the 'z' elevation is computed
+based on the user-defined line in Figure 2.  Such outputs can then be used in
+other software [for example, to define drain elevations for flood modelling].
+The user can control the maximum spacing of the projected points along the line
+shapefile.
 
 Naturally the quality of the extracted points is only as good as the input data
 accuracy, and will depend on the manually digitized profile (Figure 2). Further
 filtering or editing may be required.  Ground-truthing is helpful to confirm
-that the extracted elevations do accurately reflect the feature of interest.
+that the extracted elevations do accurately reflect the feature of interest. Regardless this tool can greatly speed up the data extraction process.
 
 The code to perform the above would be something like:
 
@@ -82,6 +84,8 @@ The code to perform the above would be something like:
         outdir=outdir, 
         linePtMaxSpacing=projectionLine_point_spacing,
         zRange=zRange)
+
+Note in the above code, the line shapefile which is used to get the initial point subset (``lineShpFile``) is the same as the line that we later export evenly spaced xyz points along (``projectionLineFile``). However, these can be different in general. This flexibility can be useful if the projected points have to conform to some other constraints -- for example, if we were extracting riverwall elevations, we might use a lineShpFile which almost exactly followed the riverwall, combined with a small extractionBufWidth, to extract the initial lidar point subset. However, a flood model might require that the riverwall is represented more coarsely (e.g. to control the mesh size), and this can be done using a projectionLineFile which more coarsely represents the riverwall planform. 
 
 Installation requires that:
 ---------------------------
