@@ -28,9 +28,9 @@ the line shapefile, which is small enough to fit easily in memory, and includes
 points both inside the drain and near its banks. These point elevations were
 plotted vs distance along the line (Figure 2). The user then interactively
 defined a line marking the drain invert by clicking on the plot (red dotted
-line in Figure 2). This is possible because the drain invert which shows up
-fairly clearly in the LIDAR point subset, as a narrow band of points plotting a
-few metres below most others.  
+line in Figure 2). Note the drain invert which shows up fairly clearly in the
+LIDAR point subset, as a narrow band of points plotting a few metres below most
+others.  
 
 ![profile](Drain_bedProfile.png?raw=true)
 
