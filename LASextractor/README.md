@@ -23,11 +23,14 @@ follows the blue points).
 
 [Figure 1]
 
-LASextractor was used to extract a set of LIDAR xyz points within 10m of the
-line shapefile, and their elevations were plotted vs distance along the line
-(Figure 2).  The user then interactively defined a line marking the drain
-invert (red dotted line in Figure 2), a feature which shows up fairly clearly
-in the LIDAR points.  
+LASextractor was used to extract a subset of the LIDAR xyz points within 10m of
+the line shapefile, which is small enough to fit easily in memory, and includes
+points both inside the drain and near its banks. These point elevations were
+plotted vs distance along the line (Figure 2). The user then interactively
+defined a line marking the drain invert by clicking on the plot (red dotted
+line in Figure 2). This is possible because the drain invert which shows up
+fairly clearly in the LIDAR point subset, as a narrow band of points plotting a
+few metres below most others.  
 
 ![profile](Drain_bedProfile.png?raw=true)
 
