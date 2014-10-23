@@ -6,13 +6,15 @@ R package for reading lidar data from las files and extracting various subsets o
 For example it can be used to semi-interactively extract LIDAR point elevations along a road or levee.
 
 In Figure [planview] below, the user has created a line shapefile along a
-narrow drain in a area where LIDAR data exists.
+narrow drain in a area where LIDAR data exists (that's the narrow pink-ish line).
 ![planview](Drain_GIS_Planview.png?raw=true) 
+
 LASextractor was used to extract a set of LIDAR xyz points near the line
 shapefile, and their elevations were plotted vs distance along the line. The
 user then interactively defined a line marking the drain invert (Figure
 [profile]), a feature which shows up fairly clearly in the LIDAR points.  
 ![profile](Drain_bedProfile.png?raw=true) 
+
 Finally all LIDAR points within a small vertical distance of the user-defined
 line were then exported (blue points in Figure [planview]).  We could check in
 GIS that these xyz points were on the drain invert, and use them in other
