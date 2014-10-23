@@ -30,7 +30,7 @@ plotted vs distance along the line (Figure 2). The user then interactively
 defined a line marking the drain invert by clicking on the plot (red dotted
 line in Figure 2). Note the drain invert which shows up fairly clearly in the
 LIDAR point subset, as a narrow band of points plotting a few metres below most
-others.  
+others (although this is somewhat obscured by the red line).  
 
 ![profile](Drain_bedProfile.png?raw=true)
 
