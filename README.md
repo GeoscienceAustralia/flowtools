@@ -14,4 +14,6 @@ But by all means add new subdirectories, and edit this README
 The projects are :
 ==================
 
-To be continued....
+LASextractor
+------------
+R package for extracting subsets of lidar data. We have used it to e.g. semi-interactively get LIDAR elevations along dry drainage channels and riverwalls.
