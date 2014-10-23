@@ -11,14 +11,18 @@ In Figure 1 below, the user has created a line shapefile along a narrow drain
 in a area where LIDAR data exists (that's the narrow pink-ish line which
 follows the blue points).
 
-![planview](Drain_GIS_Planview.png?raw=true)[Figure 1]
+![planview](Drain_GIS_Planview.png?raw=true)
+
+[Figure 1]
 
 LASextractor was used to extract a set of LIDAR xyz points within 10m of the
 line shapefile, and their elevations were plotted vs distance along the line
 (Figure 2).  The user then interactively defined a line marking the drain
 invert (Figure 2), a feature which shows up fairly clearly in the LIDAR points.  
 
-![profile](Drain_bedProfile.png?raw=true)[Figure 2]
+![profile](Drain_bedProfile.png?raw=true)
+
+[Figure 2]
 
 Finally all LIDAR points within a small vertical distance of the user-defined
 line were then exported (see blue points in Figure 1).  We could check in
