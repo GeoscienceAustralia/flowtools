@@ -5,8 +5,9 @@ R package for reading lidar data from las files and extracting various subsets o
 
 For example it can be used to semi-interactively extract LIDAR point elevations along a road or levee.
 
-In Figure 1 below, the user has created a line shapefile along a
-narrow drain in a area where LIDAR data exists (that's the narrow pink-ish line).
+In Figure 1 below, the user has created a line shapefile along a narrow drain
+in a area where LIDAR data exists (that's the narrow pink-ish line which
+follows the blue points).
 
 ![planview](Drain_GIS_Planview.png?raw=true) 
 
