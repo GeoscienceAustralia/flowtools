@@ -14,9 +14,11 @@ It can also do more basic operations, such as:
 Illustration:
 -------------
 In this case the user has a large LIDAR dataset (consisting of ~ one thousand
-.las files, each including points within a separate square kilometre region, with
-billions of points in total), and wants to extract elevations along a narrow
-drain. The entire dataset is too large to load into memory at once.
+.las files, each including points within a separate square kilometre region,
+with billions of points in total), and wants to know the elevation along the
+invert of a narrow drain. 
+
+The entire LIDAR dataset is too large to load into memory at once.
 LASextractor can help efficiently extract the desired subset.
 
 In Figure 1 below, the user has created a line shapefile along a narrow drain
@@ -53,6 +55,30 @@ Naturally the quality of the extracted points is only as good as the input data
 accuracy, and will depend on the manually digitized profile (Figure 2). Further
 filtering or editing may be required.  Ground-truthing is helpful to confirm
 that the extracted elevations do accurately reflect the feature of interest.
+
+The code to perform the above would be something like:
+
+    # Get a vector with all the .las filenames
+    lasFiles=Sys.glob('PATH_TO_LIDAR_FILES/*.las')
+    # Get the line shapefile name
+    lineShpFile='PATH_TO_LINE_SHAPEFILE/Linear_extraction_line.shp'
+    # Other parameters
+    initial_filter_distance = 10. # Initially get all las points within 10m of the line
+    vertical_filter_distance = 0.2 # Keep all initially retrieved las points within +-20cm of the digitized invert elevations
+    projectionLine_point_spacing = 3 # When projecting the xyz elevations onto the projectionLine, ensure the output point spacing is <= 3m   
+    outdir = 'OUTPUT_DIRECTORY' # Save outputs here
+    zRange = c(5, 70) # Only get las points within this elevation range
+    
+    # Manually select a subset, and write outputs as csv
+    manuallyProjectLasElevationsAlongLine(
+        lasFile, 
+        lineShpFile, 
+        extractionBufWidth=initial_filter_distance,
+        projectionLineFile=lineShpFile, 
+        verticalThreshold=vertical_filter_distance,
+        outdir=outdir, 
+        linePtMaxSpacing=projectionLine_point_spacing,
+        zRange=zRange)
 
 Installation requires that:
 ---------------------------
