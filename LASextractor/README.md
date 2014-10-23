@@ -21,9 +21,8 @@ invert of a narrow drain.
 The entire LIDAR dataset is too large to load into memory at once.
 LASextractor can help efficiently extract the desired subset.
 
-In Figure 1 below, the user has created a line shapefile along a narrow drain
-in a area where LIDAR data exists (that's the narrow pink-ish line which
-follows the blue points).
+In Figure 1 below, the user has created a line shapefile along the narrow drain
+(that's the narrow pink-ish line which follows the blue points). 
 
 ![planview](Drain_GIS_Planview.png?raw=true)
 
@@ -32,11 +31,13 @@ follows the blue points).
 LASextractor was used to extract a subset of the LIDAR xyz points within 10m of
 the line shapefile, which is small enough to fit easily in memory, and includes
 points both inside the drain and near its banks. These point elevations were
-plotted vs distance along the line (Figure 2). The user then interactively
-defined a line marking the drain invert by clicking on the plot (red dotted
-line in Figure 2). Note the drain invert which shows up fairly clearly in the
-LIDAR point subset, as a narrow band of points plotting a few metres below most
-others (although this is somewhat obscured by the red line).  
+plotted vs distance along the line (Figure 2). 
+
+The user then interactively defined a line marking the drain invert by clicking
+on the plot (red dotted line in Figure 2). Note the drain invert which shows up
+fairly clearly in the LIDAR point subset, as a narrow band of points plotting a
+few metres below most others (although this is somewhat obscured by the red
+line).  
 
 ![profile](Drain_bedProfile.png?raw=true)
 
@@ -46,10 +47,12 @@ Finally all LIDAR points within a vertical distance of 20cm from the line
 defined in Figure 2 were exported (see blue points in Figure 1). We can
 cross-check in GIS that these xyz points were over the drain invert, which
 confirms that the drain invert was accurately interpreted from the data in
-Figure 2. We can also export evenly spaced xyz points along the initially
-defined line, where the 'z' elevation is computed based on the user-defined
-line in Figure 2. Such outputs can then be used in other software [for example,
-to define drain elevations for flood modelling].
+Figure 2. 
+
+We can also export evenly spaced xyz points along the initially defined line,
+where the 'z' elevation is computed based on the user-defined line in Figure 2.
+Such outputs can then be used in other software [for example, to define drain
+elevations for flood modelling].
 
 Naturally the quality of the extracted points is only as good as the input data
 accuracy, and will depend on the manually digitized profile (Figure 2). Further
