@@ -28,10 +28,13 @@ in the LIDAR points.
 
 [Figure 2]
 
-Finally all LIDAR points within a small vertical distance of the user-defined
-line were then exported (see blue points in Figure 1).  We could check in
-GIS that these xyz points were over the drain invert, and use them in other
-software [for example, to define drain elevations for flood modelling]. 
+Finally all LIDAR points within 20cm of the user-defined line were exported
+(see blue points in Figure 1). We can cross-check in GIS that these xyz points
+were over the drain invert, which confirms that the drain invert was accurately
+interpreted from the data in Figure 2. We can also export evenly spaced xyz
+points along the initially defined line, where the 'z' elevation is computed
+based on the user-defined line. Such outputs can then be used in other software
+[for example, to define drain elevations for flood modelling].
 
 Naturally the quality of the extracted points is only as good as the input data
 accuracy, and will depend on the manually digitized profile (Figure 2).
