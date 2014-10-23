@@ -9,10 +9,11 @@ along a road or levee.
 
 Illustration:
 -------------
-In this case the user has a large LIDAR dataset (consisting of ~ 1000 1kmx1km
-.las files, with billions of points in total), and wants to extract elevations
-along a narrow drain. The entire dataset is too large to load into memory at
-once. LASextractor can help efficiently extract the desired subset.
+In this case the user has a large LIDAR dataset (consisting of ~ one thousand
+.las files, each including points within a single square kilometre, with
+billions of points in total), and wants to extract elevations along a narrow
+drain. The entire dataset is too large to load into memory at once.
+LASextractor can help efficiently extract the desired subset.
 
 In Figure 1 below, the user has created a line shapefile along a narrow drain
 in a area where LIDAR data exists (that's the narrow pink-ish line which
