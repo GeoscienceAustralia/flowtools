@@ -108,11 +108,8 @@ Look at the help
     library(LASextractor)
     ?LASextractor
 
-The example for ``manuallyProjectLasElevationsAlongLine`` shows how to use it to
-interactively define an elevation profile along a user-provided xy line
-shapefile (where elevations are chosen based on elevations of nearby lidar
-points).
-
+    # See all the functions with this command (each have their own help page)
+    ls('package:LASextractor')
 
 Maintenance and Bugs
 ---------------------
