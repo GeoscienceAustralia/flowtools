@@ -37,9 +37,9 @@ based on the user-defined line. Such outputs can then be used in other software
 [for example, to define drain elevations for flood modelling].
 
 Naturally the quality of the extracted points is only as good as the input data
-accuracy, and will depend on the manually digitized profile (Figure 2).
-Ground-truthing is helpful to confirm that the extracted elevations do
-accurately reflect the feature of interest.
+accuracy, and will depend on the manually digitized profile (Figure 2). Further
+filtering or editing may be required.  Ground-truthing is helpful to confirm
+that the extracted elevations do accurately reflect the feature of interest.
 
 Installation requires that:
 ---------------------------
