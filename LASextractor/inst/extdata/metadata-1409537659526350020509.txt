@@ -1,0 +1,52 @@
+Dataset Information:
+
+Dataset Name: Corpus Cristi, TX: Influence of Dunes & Barrier Islands on Hurricane Surge(TX11_Ferreira), doi: 10.5069/G9862Dc4. Survey Date 10/17/2011
+
+Dataset Acknowledgement: 
+LiDAR data acquisition and processing completed by the National Center for Airborne Laser Mapping (NCALM - http://www.ncalm.org). NCALM funding provided by NSF's Division of Earth Sciences, Instrumentation and Facilities Program. EAR-1043051.
+
+Data Access Acknowledgement: This material is based on [data, processing] services provided by the OpenTopography Facility with support from the National Science Foundation under NSF Award Numbers 0930731 & 0930643
+
+Horizontal Coordinates: UTM z14 N NAD83 (2011) [EPSG: 26914]
+Vertical Coordinates: NAVD88 (GEOID 09) [EPSG: 5703]
+
+Job Description:
+	User:[Guest] gareth.davies.ga@gmail.com
+	Job ID: 1409537659526350020509
+	Title: 
+	Description:
+
+Job Processing Result:
+	Submission Time: 2014-08-31 19:14:20
+	Completion Time: 2014-08-31 19:14:30
+	Duration: 10 seconds
+	Number of Points: 744,826
+	Status: Done
+
+Data Selection Coordinates: 
+	Xmin: 680676.211
+	Xmax: 681075.729
+	Ymin: 3062543.586
+	Ymax: 3062881.862
+	Classifications: all
+
+Point Cloud Results:
+	Download point cloud data in ASCII format: No
+	Download point cloud data in LAS format: Yes
+	Download point cloud data in LAZ format: No
+
+DEM Generation (Local Gridding):
+	Calculate Zmin grid: No
+	Calculate Zmax grid: No
+	Calculate Zmean grid: No
+	Calculate Zidw grid: No
+	Calculate point count grid: No
+
+DEM Generation (TIN):
+	Calculate TIN: No
+
+Derivative Products:
+	Generate Hillshades & Slopes: N/A
+
+Visualization:
+	Images & Google Earth KML: No
