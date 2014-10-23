@@ -67,7 +67,7 @@ The code to perform the above would be something like:
     vertical_filter_distance = 0.2 # Keep all initially retrieved las points within +-20cm of the digitized invert elevations
     projectionLine_point_spacing = 3 # When projecting the xyz elevations onto the projectionLine, ensure the output point spacing is <= 3m   
     outdir = 'OUTPUT_DIRECTORY' # Save outputs here
-    zRange = c(5, 70) # Only get las points within this elevation range
+    zRange = c(5, 70) # Ignore las points outside this elevation range
     
     # Manually select a subset, and write outputs as csv
     manuallyProjectLasElevationsAlongLine(
