@@ -83,6 +83,5 @@ nonetheless welcome.
 If you'd like to contribute any routines or fix bugs, consider forking the
 code, inserting your changes and sending the maintainer a pull request.
 Otherwise bug reports / suggestions can be sent to the maintainer Gareth
-Davies, 'gareth dot davies dot ga dot code at gmail dot com' (obviously replace
-the 'dot' and 'at' with '.' and '@' respectively -- I'm trying to avoid spam)
+Davies, 'gareth.davies.ga.code@gmail.com' 
 
