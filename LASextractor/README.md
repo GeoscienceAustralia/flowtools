@@ -5,7 +5,11 @@ R package for reading lidar data from las files and extracting various subsets
 of interest.
 
 For example it can be used to semi-interactively extract LIDAR point elevations
-along a road or levee.
+along a road or levee (``manuallyProjectLasElevationsAlongLine``)
+
+It can also do more basic operations, such as:
+- From a list of las files, get a subset of las points inside a polygon (or within a given distance of a line) (``getLasPointsNearRegion``)
+- Convert a set of xyz points to a raster using unstructured interpolation (``gridXYZ``)
 
 Illustration:
 -------------
