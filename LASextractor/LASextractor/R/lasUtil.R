@@ -624,7 +624,7 @@ selectLasPts <- function(shpFile, verticalThreshold, subplotLength=Inf) {
         upperInterval = minDist + i*featureLength/numberOfSubsets
         thisPlotSubset = which(outPts@data[,l]>=lowerInterval & outPts@data[,l]<=upperInterval)
         
-        keepPts = .interactivePointSelection(outPts[thisPlotSubset])
+        keepPts = .interactivePointSelection(outPts[thisPlotSubset,])
         if(i==1){
             keepPtsGlobal = keepPts
         }else{
@@ -722,7 +722,8 @@ manuallyProjectLasElevationsAlongLine <- function(lasFiles,
     }
     
     # Manually filter them
-    filteredOutPts = selectLasPts(outPts, verticalThreshold = verticalThreshold)
+    filteredOutPts = selectLasPts(outPts, verticalThreshold = verticalThreshold, 
+        subplotLength = subplotLength)
     # Write out filtered points
     filtered_points_basename = paste0(gsub(".shp", "", basename(extractionLineFile)), 
         "_filtered")

@@ -6,7 +6,8 @@ shapefiles + manual methods}
 \usage{
 manuallyProjectLasElevationsAlongLine(lasFiles, extractionLineFile,
   extractionBufWidth, projectionLineFile, verticalThreshold, outdir,
-  linePtMaxSpacing, zRange, lineDistanceRes = extractionBufWidth/20)
+  linePtMaxSpacing, zRange, lineDistanceRes = extractionBufWidth/20,
+  subplotLength = Inf)
 }
 \arguments{
 \item{lasFiles}{-- vector of names of lasFiles to search in}
@@ -35,6 +36,9 @@ projection_linefile before output}
 points, the line is sampled as points with max spacing = lineDistanceRes. All
 the original line-vertices are retained. If this is too coarse, the
 along-line-distance computation could be inaccurate.}
+
+\item{subplotLength}{-- Distance in m. If the extractionLineFile is longer than this,
+then the digitization step will be split into a sequence of sub-plots, each}
 }
 \value{
 Nothing, but produces various output shapefiles and a csv

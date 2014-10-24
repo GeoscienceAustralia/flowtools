@@ -3,7 +3,7 @@
 \alias{selectLasPts}
 \title{Interactively select a subset of las points}
 \usage{
-selectLasPts(shpFile, verticalThreshold)
+selectLasPts(shpFile, verticalThreshold, subplotLength = Inf)
 }
 \arguments{
 \item{shpFile}{-- [as output from lasPtsNearLine] a point shapefile
@@ -14,6 +14,11 @@ column, and 'distance' in the last column}
 \item{verticalThreshold}{-- returned points will be within
 'verticalThreshold' elevation distance of the interactively defined
 distance-elevation function.}
+
+\item{subplotLength}{-- Optionally the digitization occurs on a sequence
+of distance-elevation plots, where each plot covers a horizontal length of
+approximately subplotLength (physical distance in metres). This is needed to
+digitize long features}
 }
 \value{
 A list containing 1): The SpatialPointsDataFrame containing points in
