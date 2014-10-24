@@ -633,7 +633,6 @@ selectLasPts <- function(shpFile, verticalThreshold, subplotLength=Inf) {
         }
 
     }
-
     keepPts = keepPtsGlobal 
 
     # if(FALSE){ # Now for all outPts find the nearest keepPts [according to the
