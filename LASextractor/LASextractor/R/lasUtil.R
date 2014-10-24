@@ -575,6 +575,10 @@ lasPtsNearLine <- function(lineFile, lasFiles, bufWidth, outdir = "LASPTS",
 #' @param verticalThreshold -- returned points will be within
 #'   'verticalThreshold' elevation distance of the interactively defined
 #'   distance-elevation function.
+#' @param subplotLength -- Optionally the digitization occurs on a sequence
+#'   of distance-elevation plots, where each plot covers a horizontal length of
+#'   approximately subplotLength (physical distance in metres). This is needed to 
+#'   digitize long features
 #' @return A list containing 1): The SpatialPointsDataFrame containing points in
 #'    shpFile that are within verticalThreshold of the clicked points; 
 #'    2) The distance-elevation curve that the user clicked off
@@ -587,7 +591,7 @@ lasPtsNearLine <- function(lineFile, lasFiles, bufWidth, outdir = "LASPTS",
 #'     # Click off points on a plot, and return all points within 20cm of line defined by clicks
 #'     newPts = selectLasPts(lasSubset,verticalThreshold=0.2)
 #' }
-selectLasPts <- function(shpFile, verticalThreshold) {
+selectLasPts <- function(shpFile, verticalThreshold, subplotLength=Inf) {
     
     if (class(shpFile) == "SpatialPointsDataFrame") {
         outPts = shpFile
@@ -595,10 +599,41 @@ selectLasPts <- function(shpFile, verticalThreshold) {
         outPts = readOGR(dsn = shpFile, layer = gsub(".shp", "", basename(shpFile)), 
             verbose = FALSE)
     }
-    
-    keepPts = .interactivePointSelection(outPts)
-    l = length(outPts@data[1, ])
-    
+
+    # Compute the along-feature span of the data
+    l = ncol(outPts@data)
+    minDist = min(outPts@data[,l])
+    maxDist = max(outPts@data[,l])
+    featureLength = maxDist - minDist
+    if(subplotLength != Inf){
+        # Break up the data into subsets to allow for multiple interactive
+        # plots
+        numberOfSubsets = ceiling(featureLength/subplotLength)
+    }else if(subplotLength <=0){
+        stop('subplotLength must be > 0')
+    }else{
+        # Trivial case
+        numberOfSubsets = 1
+    }
+  
+    # Loop over all the subplots and manually digitize 
+    for(i in 1:numberOfSubsets){
+
+        # Find the indices of points in this subplot
+        lowerInterval = minDist + (i-1)*featureLength/numberOfSubsets
+        upperInterval = minDist + i*featureLength/numberOfSubsets
+        thisPlotSubset = which(outPts@data[,l]>=lowerInterval & outPts@data[,l]<=upperInterval)
+        
+        keepPts = .interactivePointSelection(outPts[thisPlotSubset])
+        if(i==1){
+            keepPtsGlobal = keepPts
+        }else{
+            # Append these keepPts to the last ones
+            keepPtsGlobal = rbind(keepPtsGlobal, keepPts)
+        }
+
+    }
+
     # if(FALSE){ # Now for all outPts find the nearest keepPts [according to the
     # along-profile distance]
     # nearest_keepPts=nearest_neighbour_interpolation(keepPts, 1:length(keepPts[,1]),
@@ -648,6 +683,9 @@ selectLasPts <- function(shpFile, verticalThreshold) {
 #'      points, the line is sampled as points with max spacing = lineDistanceRes. All
 #'      the original line-vertices are retained. If this is too coarse, the
 #'      along-line-distance computation could be inaccurate.
+#' @param subplotLength -- Distance in m. If the extractionLineFile is longer than this,
+#'      then the digitization step will be split into a sequence of sub-plots, each
+#       covering a length of line ~= subplotLength 
 #' @return Nothing, but produces various output shapefiles and a csv
 #' @export
 #' @examples
@@ -664,7 +702,8 @@ selectLasPts <- function(shpFile, verticalThreshold) {
 manuallyProjectLasElevationsAlongLine <- function(lasFiles, 
     extractionLineFile, extractionBufWidth, projectionLineFile, 
     verticalThreshold, outdir, linePtMaxSpacing, zRange, 
-    lineDistanceRes = extractionBufWidth/20) {
+    lineDistanceRes = extractionBufWidth/20,
+    subplotLength = Inf) {
     
     # Get all lasPts near the line
     outPts = lasPtsNearLine(lineFile = extractionLineFile, lasFiles = lasFiles, 
