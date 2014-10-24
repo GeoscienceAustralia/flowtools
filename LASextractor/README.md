@@ -77,7 +77,8 @@ The code to perform the above would be something like:
     outdir = 'OUTPUT_DIRECTORY' # Save outputs here
     zRange = c(5, 70) # Ignore las points outside this elevation range
     
-    # Manually select a subset, and write outputs as csv
+    # Manually select a subset, and write selected las points to a shapefile,
+    # and the projected xyz points to a csv [both inside the outdir]
     manuallyProjectLasElevationsAlongLine(
         lasFiles, 
         lineShpFile, 
@@ -88,7 +89,17 @@ The code to perform the above would be something like:
         linePtMaxSpacing=projectionLine_point_spacing,
         zRange=zRange)
 
-Note in the above code, the line shapefile which is used to get the initial point subset (``lineShpFile``) is the same as the line that we later export evenly spaced xyz points along (``projectionLineFile``). However, these can be different in general. This flexibility can be useful if the projected points have to conform to some other constraints -- for example, if we were extracting riverwall elevations, we might use a lineShpFile which almost exactly followed the riverwall, combined with a small extractionBufWidth, to extract the initial lidar point subset. However, a flood model might require that the riverwall is represented more coarsely (e.g. to control the mesh size), and this can be done using a projectionLineFile which more coarsely represents the riverwall planform. 
+Note in the above code, the line shapefile which is used to get the initial
+point subset (``lineShpFile``) is the same as the line that we later export
+evenly spaced xyz points along (``projectionLineFile``). However, these can be
+different in general. This flexibility can be useful if the projected points
+have to conform to some other constraints -- for example, if we were extracting
+riverwall elevations, we might use a lineShpFile which almost exactly followed
+the riverwall, combined with a small extractionBufWidth, to extract the initial
+lidar point subset. However, a flood model might require that the riverwall is
+represented more coarsely (e.g. to control the mesh size), and this can be done
+using a projectionLineFile which more coarsely represents the riverwall
+planform. 
 
 Installation requires that:
 ---------------------------
