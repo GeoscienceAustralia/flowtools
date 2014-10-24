@@ -29,25 +29,27 @@ In Figure 1 below, the user has created a line shapefile along the narrow drain
 [Figure 1]
 
 LASextractor was used to extract a subset of the LIDAR xyz points within 10m of
-the line shapefile, which is small enough to fit easily in memory, and includes
+the line shapefile, which was small enough to fit easily in memory, and includes
 points both inside the drain and near its banks. These point elevations were
 plotted vs distance along the line shapefile (Figure 2). 
 
 The user then interactively defined a distance-elevation profile marking the
 drain invert by clicking on the plot (red dotted line in Figure 2). Note the
-drain invert which shows up fairly clearly in the LIDAR point subset, as a
-narrow band of points plotting a few metres below most others (although it is
-somewhat obscured by the digitized red dotted line).  
+drain invert shows up fairly clearly in the LIDAR point subset, as a narrow
+band of points plotting a few metres below most others (although it is somewhat
+obscured by the digitized red dotted line). In our experience many linear features
+can be 'seen' when plotted in this way.
 
 ![profile](Drain_bedProfile.png?raw=true)
 
 [Figure 2]
 
-Finally we exported all LIDAR points within a vertical distance of 20cm from
-the distance-elevation profile manually defined in Figure 2 (see blue points in
-Figure 1). We can cross-check in GIS that these xyz points were over the drain
-invert, which confirms that the drain invert was accurately interpreted from
-the data in Figure 2. 
+Next we exported all LIDAR points within a vertical distance of 20cm from the
+distance-elevation profile manually defined in Figure 2 (see blue points in
+Figure 1). We can cross-check in GIS that these xyz points are indeed over the
+drain invert, to confirms that the drain invert was accurately interpreted from
+the data in Figure 2. The points may be manually edited if required (in
+external GIS software).
 
 We can also project evenly spaced xyz points along the initially defined line
 shapefile (or another line shapefile), where the 'z' elevation is computed
@@ -59,7 +61,8 @@ shapefile.
 Naturally the quality of the extracted points is only as good as the input data
 accuracy, and will depend on the manually digitized profile (Figure 2). Further
 filtering or editing may be required.  Ground-truthing is helpful to confirm
-that the extracted elevations do accurately reflect the feature of interest. Regardless this tool can greatly speed up the data extraction process.
+that the extracted elevations do accurately reflect the feature of interest.
+Regardless this tool can greatly speed up the data extraction process.
 
 The code to perform the above would be something like:
 
