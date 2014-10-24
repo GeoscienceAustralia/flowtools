@@ -634,6 +634,8 @@ selectLasPts <- function(shpFile, verticalThreshold, subplotLength=Inf) {
 
     }
 
+    keepPts = keepPtsGlobal 
+
     # if(FALSE){ # Now for all outPts find the nearest keepPts [according to the
     # along-profile distance]
     # nearest_keepPts=nearest_neighbour_interpolation(keepPts, 1:length(keepPts[,1]),
