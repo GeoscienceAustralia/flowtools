@@ -47,7 +47,7 @@ can be 'seen' when plotted in this way.
 Next we exported all LIDAR points within a vertical distance of 20cm from the
 distance-elevation profile manually defined in Figure 2 (see blue points in
 Figure 1). We can cross-check in GIS that these xyz points are indeed over the
-drain invert, to confirms that the drain invert was accurately interpreted from
+drain invert, to confirm that the drain invert was accurately interpreted from
 the data in Figure 2. The points may be manually edited if required (in
 external GIS software).
 
@@ -64,7 +64,7 @@ filtering or editing may be required.  Ground-truthing is helpful to confirm
 that the extracted elevations do accurately reflect the feature of interest.
 Regardless this tool can greatly speed up the data extraction process.
 
-The code to perform the above would be something like:
+The code to perform the above is (something like):
 
     # Get a vector with all the .las filenames
     lasFiles=Sys.glob('PATH_TO_LIDAR_FILES/*.las')
@@ -104,8 +104,8 @@ planform.
 Installation requires that:
 ---------------------------
 
-- You have the programs 'las2txt' and 'lasinfo' in your search path. These are freely available at
-http://www.cs.unc.edu/~isenburg/lastools/ 
+- You have the liblas programs 'las2txt' and 'lasinfo' in your search path. These are freely available at
+http://www.liblas.org/
 
 - You also need to have the unstructInterp R package installed. This is not on
   CRAN but installation instructions are on github:
