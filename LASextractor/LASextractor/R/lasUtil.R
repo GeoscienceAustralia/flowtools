@@ -705,6 +705,18 @@ manuallyProjectLasElevationsAlongLine <- function(lasFiles,
     verticalThreshold, outdir, linePtMaxSpacing, zRange, 
     lineDistanceRes = extractionBufWidth/20,
     subplotLength = Inf) {
+
+    # Check that files exist
+    if( length(lasFiles) == 0 ){
+        msg = 'lasFiles is empty -- check for an error where you defined it '
+        stop(msg)
+    }
+
+    if( file.exists(extractionLineFile) == FALSE ){
+        msg = paste0(c('extractionLineFile ', extractionLineFile, 
+            ' could not be found -- double check the filename and directory'))
+        stop(msg)
+    }
     
     # Get all lasPts near the line
     outPts = lasPtsNearLine(lineFile = extractionLineFile, lasFiles = lasFiles, 
