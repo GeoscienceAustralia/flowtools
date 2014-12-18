@@ -17,3 +17,7 @@ The projects are :
 LASextractor
 ------------
 R package for extracting subsets of lidar data. We have used it to e.g. semi-interactively get LIDAR elevations along dry drainage channels and riverwalls.
+
+scsrr
+-----
+Python implementation of the SCS rainfall-runoff and unit-hydrograph model
