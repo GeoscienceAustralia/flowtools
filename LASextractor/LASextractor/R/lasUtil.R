@@ -106,7 +106,7 @@ readLas <- function(lasFile, var = "xyzc", verbose = FALSE, xRange = NULL,
     }
     
     myCommand = paste0(las2TxtCommand, " --parse ", var, " --delimiter=\"|\" -i ", 
-        lasFile, " -o stdout", extentFlag)
+        "'", lasFile, "'", " -o stdout", extentFlag)
     outTxt = system(myCommand, intern = TRUE)
     if (!is.na(outTxt[1])) {
         myLas = matrix(as.numeric(unlist(strsplit(outTxt, split = "|", fixed = TRUE))), 
