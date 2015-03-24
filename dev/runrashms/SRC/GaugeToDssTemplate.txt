@@ -1,0 +1,52 @@
+"""
+This script can be run using the HEC-DSSVue program: 
+
+> HEC-DSSVue.exe gauge2dss.py
+
+after various variables below are replaced with selected file values
+
+It is NOT expected to work in pure python.
+
+BEWARE: Do careful if you edit this script! It is not python, there are strange
+constraints on the variable names, etc! Any changes might break it!
+
+"""
+
+from hec.script import *
+from hec.heclib.dss import *
+from hec.heclib.util import *
+from hec.io import *
+import java
+
+# Based on samples provided with HEC-DSSVue 
+
+dssfile = r"DSSFILENAME"
+
+myDss = HecDss.open(dssfile)
+
+tsc = TimeSeriesContainer()
+
+# Name for timeseries in HEC DSS format
+tsc.fullName = "//GAUGESITE/PRECIP-INC//1HOUR/GAGE/"
+
+start = HecTime("GAUGEDATE", "STARTTIME")
+tsc.interval = 60
+
+flows = RAINVALUES  
+times = []
+for value in flows:
+    times.append(start.value())
+    start.add(tsc.interval)
+
+
+tsc.times = times
+tsc.values = flows
+tsc.numberValues = len(flows)
+
+tsc.units = "MM"
+tsc.type = "PER-CUM"
+
+myDss.put(tsc)
+
+myDss.close()
+
