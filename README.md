@@ -21,3 +21,7 @@ R package for extracting subsets of lidar data. We have used it to e.g. semi-int
 scsrr
 -----
 Python implementation of the SCS rainfall-runoff and unit-hydrograph model
+
+dev
+---
+Things undeserving of a head directory: Works in progress, code snippets which may be useful elsewhere, etc.
