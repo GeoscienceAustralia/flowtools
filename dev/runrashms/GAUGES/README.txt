@@ -26,9 +26,9 @@
 
 - The simulation will run for the duration of the data in the file
 
-- The Day is represented as dd_Mon_YY where dd is a 2 digit day (e.g. 02 or 27), Mon is the month (e.g. Jan, Feb, Mar, Apr, … Dec) and YY is a 2 digit year (e.g. 15). For example 26_Oct_2013 is a valid date
+- The Day is represented as dd_Mon_YY where dd is a 2 digit day (e.g. 02 or 27), Mon is the month (e.g. Jan, Feb, Mar, Apr,..., Dec) and YY is a 2 digit year (e.g. 15). For example 26_Oct_13 is a valid date (26th October 2013)
 
-- The time is represented as HH:MM where HH is a 2 digit hour (e.g. 14 or 02 or 00), and MM is a 2 digit minute. The time intervals must be hourly
+- The time is represented as HH:MM where HH is a 2 digit hour (e.g. 14 or 02 or 00), and MM is a 2 digit minute. The time intervals must be hourly. If the hour is described with only one digit, then it is adjusted to begin with a zero.
 
 
 Below is an example of what the file might look like, for a hypothetical event starting 25 September 2065:
