@@ -1,0 +1,24 @@
+Package: RgeoRAS
+Type: Package
+Title: EXPERIMENTAL Tools to integrate HecRAS geometry files and GIS
+        datasets, plus other useful things.
+Author: Gareth Davies <gareth.davies.ga.code@gmail.com>
+Maintainer: Gareth Davies <gareth.davies.ga.code@gmail.com>
+Depends: R (>= 2.15.1), raster, rgdal, rgeos, sp
+Description: Functions starting with 'spatial_' create spatial
+    geometries from hecras geometry files.  Functions starting with
+    'make_' create hecras geometry text which can be inserted into
+    hecras geometry files.  Functions starting with 'add_, edit_,
+    update_' etc modify a character vector representing a hecras
+    geometry file (produced from readLines(hecras_geometry_file)).
+    Functions starting with 'SCS_' relate to the SCS unit
+    hydrograph rainfall runoff model.  Other functions exist too.
+License: BSD3
+Encoding: UTF-8
+LazyLoad: yes
+URL: NONE
+Authors@R: c(person(given="Gareth", family="Davies",
+    email="gareth.davies.ga.code@gmail.com", role=c("aut", "cre")))
+Version: 0.00-0
+Date: 2013-11-08
+Packaged: 2015-03-23 05:17:55 UTC; gareth
