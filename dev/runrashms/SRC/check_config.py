@@ -49,6 +49,10 @@ control_hms_file = os.path.join(HEC_HMS_PROJECT_DIRECTORY,
    HEC_HMS_SIMULATION_RUN + '.control')
 assert os.path.exists(control_hms_file), msg
 
+# Ensure HECRAS file really is a .prj hecras project file
+msg = 'HEC_RAS_PROJECT_FILE must be a .prj file'
+assert HEC_RAS_PROJECT_FILE[-4:] == '.prj', msg
+
 
 # No underscores
 

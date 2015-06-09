@@ -40,15 +40,19 @@ def check_rain_data_and_convert_to_float(new_rain_data, gauge_file):
 
     # Check the date format, and convert it to the hecras format
     date_format = re.compile('[0-9][0-9]_[A-Z][a-z][a-z]_[0-9][0-9]')
+    short_date_format = re.compile('[0-9]_[A-Z][a-z][a-z]_[0-9][0-9]')
     for i in range(1, len(new_rain_data)):
         if date_format.match(new_rain_data[i][0]) is None:
-            msg = 'Date ' + str(new_rain_data[i][0]) + ' in row ' +\
-                  str(i) + ' in file ' + gauge_file +\
-                  ' does not match the format dd_Mon_YY. Fix it'
-            raise Exception(msg)
-        else:
-            # Remove underscores -- this converts to HEC HMS date format
-            new_rain_data[i][0] = new_rain_data[i][0].replace('_','')
+            if short_date_format.match(new_rain_data[i][0]) is None:
+                msg = 'Date ' + str(new_rain_data[i][0]) + ' in row ' +\
+                      str(i) + ' in file ' + gauge_file +\
+                      ' does not match the format dd_Mon_YY. Fix it'
+                raise Exception(msg)
+            else:
+                new_rain_data[i][0] = '0' + new_rain_data[i][0]
+
+        # Remove underscores -- this converts to HEC HMS date format
+        new_rain_data[i][0] = new_rain_data[i][0].replace('_','')
         
     # Ensure the time is of the form [0-9][0-9]:[0-9][0-9]. If it is
     # of the form [0-9]:[0-9][0-9], then adjust by appending a zero
@@ -164,6 +168,11 @@ def read_rain_gauges_and_waterlevels(gauge_file):
         stage_inds = []
         print ''
         for i in range(2, len(rainfall_line)):
+            # Sometimes excel can append a blank column to the file
+            # Ignore it
+            if (rainfall_line[i] == "") and (stage_line[i] == ""):
+                continue
+            # 
             if int(rainfall_line[i]) == 1:
                 print '    ' + raw_file_data[0][i] + ' is RAINFALL'
                 rainfall_inds.append(i)
